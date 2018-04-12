@@ -1,0 +1,9 @@
+.env
+.idea
+*.log
+*/.DS_Store
+.DS_Store
+thumbs.db
+*.bak
+*.sw*
+/_vue
