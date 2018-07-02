@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>two-way binding</title>
+    <script src="dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <p>{{ message }}</p>
+    <input v-model="message">
+</div>
+<script>
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!'
+  }
+});
+</script>
+</body>
+</html>
