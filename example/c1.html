@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件 Global Registration</title>
+    <script src="dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <component-a></component-a>
+    <component-b></component-b>
+    <component-c></component-c>
+</div>
+<script>
+
+Vue.component('component-a', {
+    template: '<p>this is component a.</p>'
+})
+Vue.component('component-b', {
+    template: '<p>this is component b.</p>'
+})
+Vue.component('component-c', {
+    template: '<p>this is component c.</p>'
+})
+
+new Vue({
+  el: '#app'
+})
+</script>
+</body>
+</html>

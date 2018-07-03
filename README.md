@@ -11,9 +11,16 @@
 - [component](example/7.html)
 - [object freeze](example/8.html)
 
-
-## 完成一个简单的 TODO APP
+## 一个简单的 TODO APP
 
 [todo app](example/todo-app.html)
 
+## 组件
+
+- [全局组件:Global Registration](example/c1.html)
+- [局部组件:Local Registration](example/c2.html)
+
+## 结合 vue-router 的示例 App
+
+待续
 
