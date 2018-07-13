@@ -22,5 +22,23 @@
 
 ## 结合 vue-router 的示例 App
 
-待续
+安装 `vue-cli` 之后，可以使用快捷命令生成 `vue` 示例项目。
+
+```bash
+# 请根据项目需求选择 `webpack` 或 `webpack-simple` 命令来创建示例项目或初始化新项目
+vue init webpack my-project
+vue init webpack-simple my-project
+```
+
+上面命令会生成基于 `webpack` 配置的项目，其中带 `simple` 的命令提供更简单配置和更少的依赖（后续 `browserify-simple` 命令亦是如此）。当然，您也可以生成基于 `browserify` 配置的项目，使用下面命令即可。
+
+```bash
+# 请根据项目需求选择 `browserify` 或 `browserify-simple` 命令来创建示例项目或初始化新项目
+vue init browserify my-project
+vue init browserify-simple my-project
+```
+
+更多请参考 [vuejs-templates](https://github.com/vuejs-templates) 组织相关代码库。
+
+本仓库使用 `vue init webpack-simple simple-vue2-webpack-project` 命令生成了一个示例项目，并结合 `vue-router` 。
 
