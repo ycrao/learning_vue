@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop 基础示例</title>
+    <script src="dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--传递静态prop-->
+<blog-post post-title="hello world!"></blog-post>
+<!--传递动态prop-->
+<blog-post :post-title="postTitle"></blog-post>
+<user-table v-bind:my-name="name" v-bind:my-age="age"></user-table>
+</div>
+<template id="userTable">
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>{{ myName }}</td>
+            <td>{{ myAge }}</td>
+        </tr>
+    </table>
+</template>
+<style>
+table, td, th {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+table {
+    margin: 20px;
+}
+td, th {
+    border: 1px solid #bcbcbc;
+    padding: 5px 10px
+}
+th {
+    background: #42b983;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer
+}
+</style>
+<script>
+Vue.component('blog-post', {
+  props: ['postTitle'],
+  template: '<h3>{{ postTitle }}</h3>'
+})
+new Vue({
+  el: '#app',
+  data: {
+    postTitle: '你好世界',
+    name: '张三',
+    age: 20
+  },
+  components: {
+    'user-table': {
+      // prop 指定类型
+      props: {
+        myName: String,
+        myAge: Number
+      },
+      template: '#userTable'
+    }
+  }
+})
+</script>
+</body>
+</html>

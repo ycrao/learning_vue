@@ -42,7 +42,12 @@ vue init browserify-simple my-project
 
 本仓库使用 `vue init webpack-simple simple-vue2-webpack-project` 命令生成了一个示例项目。
 
+## 组件 `prop`
 
+- [prop 基础示例](example/cp_1.html)
+- `prop` 单向数据流： 所有的 `prop` 都使得其父子 `prop` 之间形成了一个单向下行绑定：父级 `prop` 的更新会向下流动到子组件中，但是反过来则不行。这样会防止从子组件意外改变父级组件的状态，从而导致你的应用的数据流向难以理解。
+- [prop 使用事件实现双向绑定](example/cp_2.html)
+- [prop sync 使用示例](example/cp_3.html) （来源：[Vue’s new and improved prop.sync](https://medium.com/front-end-hacking/vues-v-model-directive-vs-sync-modifier-d1f83957c57c) )
 
 
 

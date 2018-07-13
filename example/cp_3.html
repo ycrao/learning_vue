@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prop.sync 示例</title>
+    <script src="dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  {{ size }} | {{ color }}
+  <doggie :size.sync="size" :color.sync="color" />
+    }
+</div>
+<script>
+Vue.component('doggie', {
+  template: `
+    <div>
+      <h1>The {{size}}, {{color}} dog chased me</h1>
+      <input :value="size" @input="$emit('update:size', $event.target.value)" />
+      <input :value="color" @input="$emit('update:color', $event.target.value)" />
+    </div>
+  `,
+  props: ['size', 'color'],
+})
+
+new Vue({
+  el: '#app',
+  data: {
+    size: 'big',
+    color: 'brown'
+  },
+  mounted() {
+    const vm = this
+    setInterval(() => { console.log('size', this.size, 'color', this.color); }, 3000);
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prop 双向绑定的实现</title>
+    <script src="dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+    <h1>父组件数据</h1>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td>{{ name }} <input type="text" v-model="name" /></td>
+            <td>{{ age }} <input type="number" v-model.number="age" /></td>
+        </tr>
+    </table>
+    <!--
+      v-bind:my-name
+      v-on:update:my-name="my-name = $event"
+    参考文档
+      https://cn.vuejs.org/v2/guide/components-custom-events.html
+    -->
+    <user-table
+      v-bind:my-name.sync="name"
+      v-bind:my-age="age"
+      v-on:change-age="age = $event"
+    ></user-table>
+</div>
+<template id="userTable">
+    <div>
+        <h2>子组件数据</h2>
+        <table>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+            </tr>
+            <tr>
+                <td>{{ myName }} <input type="text" :value="myName" @input="updateName" /></td>
+                <td>{{ myAge }} <input type="number" :value="myAge" @input="updateAge" /></td>
+            </tr>
+        </table>
+    </div>
+</template>
+<style>
+table, td, th {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+table {
+    margin: 20px;
+}
+td, th {
+    border: 1px solid #bcbcbc;
+    padding: 5px 10px
+}
+th {
+    background: #42b983;
+    font-weight: 400;
+    color: #fff;
+    cursor: pointer
+}
+</style>
+<script>
+
+var UserTable = {
+  props: {
+    myName: String,
+    myAge: Number
+  },
+  template: '#userTable',
+  watch: {
+    myName: function (val) {
+      console.log('child-component watch fater-component name:' + val)
+    },
+    myAge: function (val) {
+      console.log('child-component watch father-component age:' + val)
+    }
+  },
+  methods: {
+    updateName (evt) {
+      console.log(evt)
+      console.log('_name value:' + this.myName)
+      console.log('evt.target.value:' + evt.target.value)
+      this.$emit('update:myName', evt.target.value)
+      console.log('child-component myName:' + this.myName)
+    },
+    updateAge (evt) {
+      console.log(evt)
+      console.log('_name value:' + this.myAge)
+      console.log('evt.target.value:' + evt.target.value)
+      // 自定义 change-age 事件
+      this.$emit('change-age', Number(evt.target.value))
+      console.log('child-component myAge:' + this.myAge)
+    }
+  }
+}
+new Vue({
+  el: '#app',
+  data: {
+    name: '张三',
+    age: 20
+  },
+  components: {
+    'user-table': UserTable
+  },
+  mounted() {
+    const vm = this
+    setInterval(() => { console.log('name', this.name, 'age', this.age); }, 3000);
+  }
+})
+</script>
+</body>
+</html>
