@@ -20,7 +20,7 @@
 - [全局组件:Global Registration](example/c1.html)
 - [局部组件:Local Registration](example/c2.html)
 
-## 结合 vue-router 的示例 App
+## 使用 `vue-cli` 脚手架生成示例项目
 
 安装 `vue-cli` 之后，可以使用快捷命令生成 `vue` 示例项目。
 
@@ -40,5 +40,10 @@ vue init browserify-simple my-project
 
 更多请参考 [vuejs-templates](https://github.com/vuejs-templates) 组织相关代码库。
 
-本仓库使用 `vue init webpack-simple simple-vue2-webpack-project` 命令生成了一个示例项目，并结合 `vue-router` 。
+本仓库使用 `vue init webpack-simple simple-vue2-webpack-project` 命令生成了一个示例项目。
+
+
+
+
+
 
