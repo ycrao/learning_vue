@@ -49,6 +49,24 @@ vue init browserify-simple my-project
 - [prop 使用事件实现双向绑定](example/cp_2.html)
 - [prop sync 使用示例](example/cp_3.html) （来源：[Vue’s new and improved prop.sync](https://medium.com/front-end-hacking/vues-v-model-directive-vs-sync-modifier-d1f83957c57c) )
 
+## 事件
 
+事件名不存在任何自动化的大小写转换，推荐你始终使用 `kebab-case`  风格的事件名。
 
+你可能有很多次想要在一个组件的根元素上直接监听一个原生事件。这时，你可以使用 `v-on` 的 `.native` 修饰符：
 
+```html
+<base-input v-on:focus.native="onFocus"></base-input>
+```
+`.sync` 修饰符使用，可以参考上节示例或者官方文档。
+
+## 动态组件与异步组件
+
+这一部分的内容有一定的难度，请参考官方文档 [动态组件 & 异步组件](https://cn.vuejs.org/v2/guide/components-dynamic-async.html) 学习。
+
+## 成熟的开发方案
+
+- `vue` 资源汇聚 - [awesome-vue](https://github.com/vuejs/awesome-vue)
+- 饿了么 - [Element](http://element-cn.eleme.io/#/zh-CN)
+- 基于 `vue` 与 `element` 管理后台 - [vue-element-admin](https://github.com/PanJiaChen/vue-element-admin)
+- 有赞 - [vant](https://github.com/youzan/vant)
